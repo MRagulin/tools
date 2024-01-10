@@ -1,12 +1,12 @@
 Скрипты автоматизации
 ====
-##SSH
+## SSH
 Проблема подключения putty к SSH через ключ
 
 ```
 echo ‘PubkeyAcceptedAlgorithms +ssh-rsa’ >> /etc/ssh/sshd_config
 ```
-##Веб
+## Веб
 Методология
 
 1) сбор информации (Краулинг)
@@ -20,7 +20,8 @@ nmap, dnscan, google, whatweb, burp spider
 8) тестирование обработки ошибок (ERROR handle)
 9) тестирование на предмет некриптостойкого шифрования (SSL/TLS)
 10) тестирование бизнес-логики приложения (Валидация данных, бизнес-логики, загрузка данных)
-11) тестирование механизмов безопасности клиентской части(XSS,JavaScript-инъекции, Clickjacking, WebSockets; )![Uploading image.png…]()
+11) тестирование механизмов безопасности клиентской части(XSS,JavaScript-инъекции, Clickjacking, WebSockets;)
+    
 
 
 
