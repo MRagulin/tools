@@ -1,4 +1,4 @@
-![image](https://github.com/MRagulin/tools/assets/26712092/c72c30c3-b058-41cf-8775-ff23d1fa39ca)Скрипты автоматизации
+Скрипты автоматизации
 ====
 ## SSH
 Проблема подключения putty к SSH через ключ
