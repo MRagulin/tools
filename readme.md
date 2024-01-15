@@ -213,3 +213,43 @@ apt-get update && apt-get upgrade -y
 apt-get install terminator -y
 apt install docker.io -y
 ```
+
+## Скрытие следов
+
+Windows
+```
+for /F "tokens=*" %1 in ('wevtutil.exe el') DO wevtutil.exe cl "%1"
+Clear-Eventlog -LogName Application,Security,System
+wevtutil cl security && wevtutil cl application && wevtutil cl system
+```
+
+Linux
+
+```
+echo "" /var/log/auth.log
+echo "" ~/.bash_history
+history -c
+export HISTFILESIZE=0 && export HISTSIZE=0 || unset HISTFILE (logout)
+```
+
+Удаление антивируса
+
+```
+wmic product get name /value 
+wmic product where name="AVP" call uninstall /nointeractive
+```
+
+## Проброс портов
+Windows
+
+```
+netsh interface portproxy add v4tov4 listenport=8001 listenaddress=192.168.0.10 connectport=80 connectaddress=192.168.0.10
+netsh interface portproxy add v4tov4 listenport=8001 connectport=80 connectaddress=127.0.0.1
+netsh interface portproxy show all
+```
+
+Linux
+
+```
+ssh -L 3336:db001.host:3306 user@pub001.host
+```
