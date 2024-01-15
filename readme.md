@@ -61,6 +61,15 @@ hydra -L tomcat_user.txt -P tomcat_pass.txt -f alic.trust.localhost -s 7012 http
 hashcat -a 0 -m 20 pass.txt /usr/share/seclists/Passwords/xato-net-10-million-passwords-1000.txt
 ```
 
+***Заблокировать вредоносные агенты***
+ if ($http_user_agent ~* (^curl|wallarm|bot|scan|monotor|xyz|package|python|w3af.sourceforge.net|dirbuster|nikto|wpscan|SF|sqlmap|fimap|nessus|whatweb|Openvas|jbrofuzz|libwhisker|webshag|acunetix|nmap|wikto|bsqlbf|havij|appscan|wpscan|ApacheBench|w3af|Arachni|XSpider|Hydra|Evas$))
+ {return 418;}
+
+***Проверить пароль для сертификата***
+```
+openssl rsa -noout -in суке.pem -passin 'pass:**********' 2>/dev/null && echo 'Valid' || echo 'Not Valid'
+```
+
 ## Python   
 Проблема установки пакетов pip в корпоративной среде, варианты решения:
 1. export HTTPS_PROXY=https://172.16.70.1:8888/ && export HTTP_PROXY=http://172.16.70.1:8888/ или set HTTPS_PROXY=https://172.16.70.1:8888/  && set HTTP_PROXY=http://172.16.70.1:8888/
@@ -85,6 +94,12 @@ pwnkit --  https://github.com/PwnFunction/CVE-2021-4034
 adduser user
 usermod -aG user sudo
 echo 'user ALL=NOPASSWD: ALL' >> /etc/sudoers
+```
+
+Найти всех sudoers
+
+```
+SUID: find / -perm -u=s -type f 2>/dev/null
 ```
 
 **Windows**
