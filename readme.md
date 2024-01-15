@@ -115,6 +115,13 @@ LinPEAS
 WinPEAS
     https://github.com/carlospolop/PEASS-ng/
 
+Найти не экранированные сервисы (подробнее: https://juggernaut-sec.com/unquoted-service-paths/):
+
+```
+wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /i /v "C:\windows\\" | findstr /i /v """
+Get-WmiObject -class Win32_Service -Property Name, DisplayName, PathName, StartMode | Where {$_.PathName -notlike "C:\Windows*" -and $_.PathName -notlike '"*'} | select Name,DisplayName,StartMode,PathName
+```
+
 ## Active Directory
 
 Как получить учётную запись в AD:
