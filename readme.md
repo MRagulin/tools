@@ -235,6 +235,7 @@ export HISTFILESIZE=0 && export HISTSIZE=0 || unset HISTFILE (logout)
 Удаление антивируса
 
 ```
+wmic /node:"inv1.contoso.com" /USER:"contoso.com\tuser" /namespace:\\root\SecurityCenter2 path AntiVirusProduct get * /value | findstr /V /B /C:displayName || echo No Antivirus installed
 wmic product get name /value 
 wmic product where name="AVP" call uninstall /nointeractive
 ```
