@@ -62,8 +62,11 @@ hashcat -a 0 -m 20 pass.txt /usr/share/seclists/Passwords/xato-net-10-million-pa
 ```
 
 ***Заблокировать вредоносные агенты***
+```
  if ($http_user_agent ~* (^curl|wallarm|bot|scan|monotor|xyz|package|python|w3af.sourceforge.net|dirbuster|nikto|wpscan|SF|sqlmap|fimap|nessus|whatweb|Openvas|jbrofuzz|libwhisker|webshag|acunetix|nmap|wikto|bsqlbf|havij|appscan|wpscan|ApacheBench|w3af|Arachni|XSpider|Hydra|Evas$))
  {return 418;}
+
+```
 
 ***Проверить пароль для сертификата***
 ```
