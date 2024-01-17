@@ -96,8 +96,18 @@ pwnkit --  https://github.com/PwnFunction/CVE-2021-4034
 ```
 adduser user
 usermod -aG sudo user 
-echo 'user ALL=NOPASSWD: ALL' >> /etc/sudoers
+mkdir /home/user/.ssh
+echo 'ssh-rsa AAAAB3N.....lbigkey root@myserver.local' >> /home/user/.ssh/id_rsa.pub
+chmod -R 600 /home/user/.ssh
+chown -R user:user /home/user/.ssh
+echo 'user ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+echo 'Match User user' >> /etc/ssh/sshd_config
+echo '    PasswordAuthentication no' >> /etc/ssh/sshd_config
+echo 'PubkeyAcceptedAlgorithms +ssh-rsa' >> /etc/ssh/sshd_config
+
+sudo systemctl restart sshd
 ```
+
 
 Найти всех sudoers
 
