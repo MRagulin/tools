@@ -328,4 +328,10 @@ Linux
 ```
 ssh -L 3336:db001.host:3306 user@pub001.host
 ```
+## Сбор информации
 
+Прочитать информацию об сертификате 
+
+```
+ openssl x509 -in cert.pem -noout -issuer -subject -dates -nameopt sep_multiline
+```
