@@ -68,6 +68,12 @@ hashcat -a 0 -m 20 pass.txt /usr/share/seclists/Passwords/xato-net-10-million-pa
 
 ```
 
+***Рекурсивный поиск директорий***
+
+```
+for domain in $(cat domains.txt); do dirb https://$domain ~/Pentest/SecLists-master/Discovery/Web-Content/b00m_fuzz.txt | grep '+' >> log.txt; done
+```
+
 ***Проверить пароль для сертификата***
 ```
 openssl rsa -noout -in суке.pem -passin 'pass:**********' 2>/dev/null && echo 'Valid' || echo 'Not Valid'
