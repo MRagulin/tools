@@ -74,6 +74,14 @@ hashcat -a 0 -m 20 pass.txt /usr/share/seclists/Passwords/xato-net-10-million-pa
 for domain in $(cat domains.txt); do dirb https://$domain ~/Pentest/SecLists-master/Discovery/Web-Content/b00m_fuzz.txt | grep '+' >> log.txt; done
 ```
 
+***Поиск данных***
+```
+amass enum -v -src -ip -d gov.kz
+https://crt.sh/
+https://dnsdumpster.com/
+https://apps.db.ripe.net/db-web-ui/fulltextsearch
+https://spark-interfax.ru/
+```
 ***Проверить пароль для сертификата***
 ```
 openssl rsa -noout -in суке.pem -passin 'pass:**********' 2>/dev/null && echo 'Valid' || echo 'Not Valid'
