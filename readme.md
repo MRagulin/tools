@@ -1,7 +1,7 @@
 Скрипты автоматизации
 ====
 ## SSH
-Проблема подключения putty к SSH через ключ
+Проблема подключения putty к SSH через ключ (если это RSA)
 
 ```
 echo ‘PubkeyAcceptedAlgorithms +ssh-rsa’ >> /etc/ssh/sshd_config
