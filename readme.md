@@ -87,6 +87,9 @@ https://spark-interfax.ru/
 openssl rsa -noout -in суке.pem -passin 'pass:**********' 2>/dev/null && echo 'Valid' || echo 'Not Valid'
 ```
 
+***Поиск данных в .git***
+git log -p | findstr /i /c:"password" /c:"token" /c:"secret" /c:"пароль" /c:"basic-auth" /c:"DB_PASS"
+
 ## Python   
 Проблема установки пакетов pip в корпоративной среде, варианты решения:
 1. export HTTPS_PROXY=https://172.16.70.1:8888/ && export HTTP_PROXY=http://172.16.70.1:8888/ или set HTTPS_PROXY=https://172.16.70.1:8888/  && set HTTP_PROXY=http://172.16.70.1:8888/
