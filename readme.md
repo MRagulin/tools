@@ -43,10 +43,10 @@ nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.
 
 ```
 ***Набор данных для фаззинга:***
-
+```
 https://github.com/Bo0oM/fuzz.txt
 https://github.com/danielmiessler/SecLists
-
+```
 ***Sqlmap***
 ```
 sqlmap -r target1 --dbms=mssql --all --hex --tamper=space2comment,between,charencode --level=5 --risk=3
