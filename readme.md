@@ -89,6 +89,7 @@ openssl rsa -noout -in суке.pem -passin 'pass:**********' 2>/dev/null && ech
 
 ***Поиск данных в .git***
 git log -p | findstr /i /c:"password" /c:"token" /c:"secret" /c:"пароль" /c:"basic-auth" /c:"DB_PASS"
+git log -p | Select-String _PASSWORD,_TOKEN,PSW=,Authorization
 
 ## Python   
 Проблема установки пакетов pip в корпоративной среде, варианты решения:
