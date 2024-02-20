@@ -390,4 +390,8 @@ ssh -L 3336:db001.host:3306 user@pub001.host
  openssl x509 -in cert.pem -noout -issuer -subject -dates -nameopt sep_multiline
 ```
 
+журналы MySQL
+```
+grep "A temporary password" /var/log/mysql.log | tail -1
+```
 
