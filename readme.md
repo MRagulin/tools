@@ -72,6 +72,7 @@ hashcat -a 0 -m 20 pass.txt /usr/share/seclists/Passwords/xato-net-10-million-pa
 
 ```
 for domain in $(cat domains.txt); do dirb https://$domain ~/Pentest/SecLists-master/Discovery/Web-Content/b00m_fuzz.txt | grep '+' >> log.txt; done
+ffuf -u https://oq.localhost/FUZZ -w fuzz.txt -fc 301,403
 ```
 
 ***Поиск данных***
