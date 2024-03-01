@@ -88,9 +88,17 @@ openssl rsa -noout -in суке.pem -passin 'pass:**********' 2>/dev/null && ech
 ```
 
 ***Поиск данных в .git***
+```
 git log -p | findstr /i /c:"password" /c:"token" /c:"secret" /c:"пароль" /c:"basic-auth" /c:"DB_PASS" > password.txt
 git log -p | Select-String _PASSWORD,_TOKEN,PSW=,Authorization > password.txt
 Select-String -Path .\passwords.txt -Pattern "_PASSWORD ="
+```
+
+***Проверить SQLI sleep***
+```
+curl -o /dev/null -s -w 'Total: %{time_total}s\n' https://test.localhost/index.php?kato=276600000 
+curl -o /dev/null -s -w 'Total: %{time_total}s\n' https://test.localhost/index.php?kato=271000000%20AND%20%28SELECT%203735%20FROM%20%28SELECT%28SLEEP%285%29%29%29cCNC%29
+```
 
 ## Python   
 Проблема установки пакетов pip в корпоративной среде, варианты решения:
