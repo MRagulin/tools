@@ -205,6 +205,14 @@ hashcat -m 13100 --force <TGSs_file> <passwords_file>
 for i in $(find -name '*.txt'); do hashcat -m 13100 --force tgt_ticket.txt "$i"; done >> /tmp/brute_tgt.log
 ```
 
+##FTP
+
+```
+ftp anonymous@hostname (anonymous)
+ls|prompt no|mget * .|
+
+wget -m ftp://anonymous:anonymous@hostname
+```
 
 ## SMB
 Шары
