@@ -243,7 +243,7 @@ Linux
 
 ***Генерируем статические ключи***
 ```
-openvpn --genkey --secret static.key
+openvpn --genkey secret static.key
 ```
 
 ***Конфигурация сервера***
