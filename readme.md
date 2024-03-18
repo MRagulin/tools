@@ -222,6 +222,7 @@ https://github.com/ly4k/Certipy
 https://github.com/topotam/PetitPotam
 https://github.com/dirkjanm/PKINITtools/tree/master
 https://github.com/dirkjanm/PKINITtools/blob/master/getnthash.py
+https://habr.com/ru/companies/deiteriylab/articles/581758/
 ```
 
 **FTP**
