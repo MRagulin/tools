@@ -57,7 +57,7 @@ callback https://pipedream.com/
 https://github.com/Bo0oM/fuzz.txt
 https://github.com/danielmiessler/SecLists
 ```
-***Sqi***
+***Sql injection***
 
 1. Stacked queries — инъекция SQL-запросов, позволяющая злоумышленнику выполнить несколько запросов за один раз.
 2. Union-based — инъекция, использующая оператор UNION для объединения результатов двух запросов, что позволяет злоумышленнику извлекать данные из других таблиц.
