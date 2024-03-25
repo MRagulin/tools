@@ -502,7 +502,7 @@ mimikatz "privilege::debug" "sekurlsa::logonpasswords" "exit"
 ```
 mysqldump -u root -p --no-create-db --lock-tables=false --skip-add-locks --single-transaction –quick --skip-triggers <redacted> | gzip <redacted>.sql.gz
 ```
-# Социальная инжинерия 
+# Социальная инженерия 
 
 ## Принципы Чалдини:
 	
