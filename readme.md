@@ -502,3 +502,13 @@ mimikatz "privilege::debug" "sekurlsa::logonpasswords" "exit"
 ```
 mysqldump -u root -p --no-create-db --lock-tables=false --skip-add-locks --single-transaction –quick --skip-triggers <redacted> | gzip <redacted>.sql.gz
 ```
+
+## Принципы Чалдини:
+	
+1. Взаимность (Reciprocity)
+2. Обязательность и последовательность (Commitment and consistency)
+3. Социальное доказательство (Social proof)
+4. Власть и авторитет (Authority): "Доверьтесь знающему человеку"
+5. Сходство и симпатия (Liking)
+6. Дефицит (Scarcity)
+
