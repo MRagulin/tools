@@ -100,7 +100,8 @@ https://crt.sh/
 https://dnsdumpster.com/
 https://apps.db.ripe.net/db-web-ui/fulltextsearch
 https://spark-interfax.ru/
-https://builtwith.com/website-lists/Bitrix 
+https://builtwith.com/website-lists/Bitrix
+https://bgp.he.net/
 ```
 ***Проверить пароль для сертификата***
 ```
@@ -518,6 +519,8 @@ mysqldump -u root -p --no-create-db --lock-tables=false --skip-add-locks --singl
 Infoga - https://github.com/m4ll0k/Infoga
 FocaPro - https://github.com/ElevenPaths/FOCA
 TheHarvester - https://github.com/laramies/theHarvester
+hydra -L userlist.txt -s 465 smtp.gmail.com smtp
+swaks --to mike@sandbox.local --from admin@sandbox.local --server 192.168.13.37 --attach @upd.exe
 
 ## Ресурсы:
 
@@ -546,3 +549,5 @@ https://getgophish.com/
 2. mailgun.com, Amazon Simple Email Service (Amazon SES), SendPuls
 3. mail.ru, gmail.com, yandex.ru
 4. https://github.com/giuliacassara/awesome-social-engineering
+5. https://www.verifyemailaddress.org/
+6. 
