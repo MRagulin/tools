@@ -525,6 +525,11 @@ hunter.io
 snov.io
 intelx.io
 
+## Подмена доменов
+https://github.com/elceef/dnstwist
+https://github.com/kgretzky/evilginx2
+https://getgophish.com/
+
 ## Техники:
 
 SMTP User Enumeration (RCPT TO, MAIL FROM, VRFY) - энумерация (перебор) пользователей почтового сервера через протокол SMTP
