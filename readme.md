@@ -502,7 +502,7 @@ mimikatz "privilege::debug" "sekurlsa::logonpasswords" "exit"
 ```
 mysqldump -u root -p --no-create-db --lock-tables=false --skip-add-locks --single-transaction –quick --skip-triggers <redacted> | gzip <redacted>.sql.gz
 ```
-### Социальная инжинерия 
+# Социальная инжинерия 
 
 ## Принципы Чалдини:
 	
@@ -519,13 +519,13 @@ Infoga - https://github.com/m4ll0k/Infoga
 FocaPro - https://github.com/ElevenPaths/FOCA
 TheHarvester - https://github.com/laramies/theHarvester
 
-# Ресурсы:
+## Ресурсы:
 
 hunter.io
 snov.io
 intelx.io
 
-# Техники:
+## Техники:
 
 SMTP User Enumeration (RCPT TO, MAIL FROM, VRFY) - энумерация (перебор) пользователей почтового сервера через протокол SMTP
 OWA (Outlook Web Access) Enumeration - энумерация (перебор) пользователей почтового сервера через веб-страницу Outlook Web Access.
