@@ -532,5 +532,11 @@ https://getgophish.com/
 
 ## Техники:
 
-SMTP User Enumeration (RCPT TO, MAIL FROM, VRFY) - энумерация (перебор) пользователей почтового сервера через протокол SMTP
-OWA (Outlook Web Access) Enumeration - энумерация (перебор) пользователей почтового сервера через веб-страницу Outlook Web Access.
+1. SMTP User Enumeration (RCPT TO, MAIL FROM, VRFY) - энумерация (перебор) пользователей почтового сервера через протокол SMTP
+2. OWA (Outlook Web Access) Enumeration - энумерация (перебор) пользователей почтового сервера через веб-страницу Outlook Web Access.
+
+## Сценарии
+
+1. Фишинг (Phishing)
+2. Vishing (голосовой фишинг)
+3. Baiting
