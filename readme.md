@@ -502,6 +502,7 @@ mimikatz "privilege::debug" "sekurlsa::logonpasswords" "exit"
 ```
 mysqldump -u root -p --no-create-db --lock-tables=false --skip-add-locks --single-transaction –quick --skip-triggers <redacted> | gzip <redacted>.sql.gz
 ```
+### Социальная инжинерия 
 
 ## Принципы Чалдини:
 	
@@ -512,3 +513,19 @@ mysqldump -u root -p --no-create-db --lock-tables=false --skip-add-locks --singl
 5. Сходство и симпатия (Liking)
 6. Дефицит (Scarcity)
 
+## Инструменты:
+
+Infoga - https://github.com/m4ll0k/Infoga
+FocaPro - https://github.com/ElevenPaths/FOCA
+TheHarvester - https://github.com/laramies/theHarvester
+
+# Ресурсы:
+
+hunter.io
+snov.io
+intelx.io
+
+# Техники:
+
+SMTP User Enumeration (RCPT TO, MAIL FROM, VRFY) - энумерация (перебор) пользователей почтового сервера через протокол SMTP
+OWA (Outlook Web Access) Enumeration - энумерация (перебор) пользователей почтового сервера через веб-страницу Outlook Web Access.
