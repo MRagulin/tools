@@ -516,11 +516,11 @@ mysqldump -u root -p --no-create-db --lock-tables=false --skip-add-locks --singl
 
 ## Инструменты:
 
-Infoga - https://github.com/m4ll0k/Infoga
-FocaPro - https://github.com/ElevenPaths/FOCA
-TheHarvester - https://github.com/laramies/theHarvester
-hydra -L userlist.txt -s 465 smtp.gmail.com smtp
-swaks --to mike@sandbox.local --from admin@sandbox.local --server 192.168.13.37 --attach @upd.exe
+1. Infoga - https://github.com/m4ll0k/Infoga
+2. FocaPro - https://github.com/ElevenPaths/FOCA
+3. TheHarvester - https://github.com/laramies/theHarvester
+4. hydra -L userlist.txt -s 465 smtp.gmail.com smtp
+5. swaks --to mike@sandbox.local --from admin@sandbox.local --server 192.168.13.37 --attach @upd.exe
 
 ## Ресурсы:
 
