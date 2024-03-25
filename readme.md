@@ -540,3 +540,9 @@ https://getgophish.com/
 1. Фишинг (Phishing)
 2. Vishing (голосовой фишинг)
 3. Baiting
+
+# Инструменты
+1. poste.io
+2. mailgun.com, Amazon Simple Email Service (Amazon SES), SendPuls
+3. mail.ru, gmail.com, yandex.ru
+4. https://github.com/giuliacassara/awesome-social-engineering
