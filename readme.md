@@ -139,7 +139,7 @@ wmic /Node:@C:\tmp\targets.txt /USER:"domain\user" /namespace:\\root\SecurityCen
 ## Повышение привилегий
 
 **Linux** 
-
+https://gtfobins.github.io/ (sudo -l)
 pwnkit --  https://github.com/PwnFunction/CVE-2021-4034 
 ```
 adduser user
