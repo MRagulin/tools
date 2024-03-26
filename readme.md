@@ -139,16 +139,16 @@ wmic /Node:@C:\tmp\targets.txt /USER:"domain\user" /namespace:\\root\SecurityCen
 ## Повышение привилегий
 
 **Linux** 
-https://gtfobins.github.io/ (sudo -l)
-find /home/ -perm 4000 (suid-бит)
-cat ~/.bash_history
-cat /etc/crontab
-pwnkit --  https://github.com/PwnFunction/CVE-2021-4034 
-https://github.com/rebootuser/LinEnum
-https://github.com/luke-goddard/enumy
-https://github.com/mostaphabahadou/postenum
-https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
-https://book.hacktricks.xyz/linux-hardening/privilege-escalation
+1. https://gtfobins.github.io/ (sudo -l)
+2. find /home/ -perm 4000 (suid-бит)
+3. cat ~/.bash_history
+4. cat /etc/crontab
+5. pwnkit --  https://github.com/PwnFunction/CVE-2021-4034 
+6. https://github.com/rebootuser/LinEnum
+7. https://github.com/luke-goddard/enumy
+8. https://github.com/mostaphabahadou/postenum
+9. https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
+10. https://book.hacktricks.xyz/linux-hardening/privilege-escalation
 ```
 adduser user
 usermod -aG sudo user 
