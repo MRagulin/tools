@@ -140,7 +140,15 @@ wmic /Node:@C:\tmp\targets.txt /USER:"domain\user" /namespace:\\root\SecurityCen
 
 **Linux** 
 https://gtfobins.github.io/ (sudo -l)
+find /home/ -perm 4000 (suid-бит)
+cat ~/.bash_history
+cat /etc/crontab
 pwnkit --  https://github.com/PwnFunction/CVE-2021-4034 
+https://github.com/rebootuser/LinEnum
+https://github.com/luke-goddard/enumy
+https://github.com/mostaphabahadou/postenum
+https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
+https://book.hacktricks.xyz/linux-hardening/privilege-escalation
 ```
 adduser user
 usermod -aG sudo user 
