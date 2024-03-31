@@ -488,6 +488,8 @@ wmic product where name="AVP" call uninstall /nointeractive
 12. NetBIOS (LLMNR) spoofing
 13. DHCP spoofing
 
+ettercap, bettercap, mitm6, yersinia,scapy, evilFoca
+
 ## Проброс портов
 Windows
 
