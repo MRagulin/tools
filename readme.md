@@ -472,6 +472,21 @@ export HISTFILESIZE=0 && export HISTSIZE=0 || unset HISTFILE (logout)
 wmic product get name /value 
 wmic product where name="AVP" call uninstall /nointeractive
 ```
+## MiTM
+
+1. ARP spoofing
+2. STP (RSTP, PVSTP, MSTP) spoofing
+3. NDP spoofing
+4. VLAN hopping
+5. SLAAC Attack
+6. Hijacking HSRP (VRRP, CARP)
+7. Dynamic routing protocol spoofing (BGP)
+8. RIPv2 Routing Table Poisoning
+9. OSPF Routing Table Poisoning
+10. EIGRP Routing Table Poisoning
+11. ICMP Redirect
+12. NetBIOS (LLMNR) spoofing
+13. DHCP spoofing
 
 ## Проброс портов
 Windows
