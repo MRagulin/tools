@@ -511,6 +511,15 @@ mimikatz "privilege::debug" "sekurlsa::logonpasswords" "exit"
 ```
 mysqldump -u root -p --no-create-db --lock-tables=false --skip-add-locks --single-transaction –quick --skip-triggers <redacted> | gzip <redacted>.sql.gz
 ```
+
+Команда для переноса трафика из tcpdump с удаленного узла, в интерфейс wireshark на локальном узле:
+
+```
+ssh root@10.0.5.11 tcpdump -i any -s0 -nn -w - | wireshark -k -i -
+
+
+```
+
 # Социальная инженерия 
 
 ## Принципы Чалдини:
