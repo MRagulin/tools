@@ -474,7 +474,7 @@ wmic product where name="AVP" call uninstall /nointeractive
 ```
 ## MiTM
 
-1. ARP spoofing
+1. ARP spoofing (bettercap -T 10.10.10.10 -X)
 2. STP (RSTP, PVSTP, MSTP) spoofing
 3. NDP spoofing
 4. VLAN hopping
