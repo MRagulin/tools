@@ -16,6 +16,12 @@ hydra -V -f -t 4 -l root -P pass.txt ssh://172.16.60.1
 nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.16.60.1
 ```
 
+## Excel
+ Подсчет значений в таблице
+```
+=СЧЁТЕСЛИ($A$2:$A$100;A2)
+
+```
 
 ## Веб
 Методология OWASP
