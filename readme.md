@@ -22,6 +22,11 @@ nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.
 =СЧЁТЕСЛИ($A$2:$A$100;A2)
 
 ```
+## nmap
+
+```
+nmap -Pn -vv -F -T4 --min-rate 50000 --min-hostgroup 100 -iL targets.txt
+```
 
 ## Веб
 Методология OWASP
