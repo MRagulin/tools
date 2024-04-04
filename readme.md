@@ -29,6 +29,13 @@ nmap -Pn -vv -F -T4 --min-rate 50000 --min-hostgroup 100 -iL targets.txt
 nmap -Pn -n -sT -p 88,135,137,389,445,1433,3389 -sV -sC --open -iL list-of-machines.txt
 ```
 
+## Атаки первичного доступа
+1. Применение эксплойтов к известным уязвимостям (https://github.com/SecWiki/windows-kernel-exploits?tab=readme-ov-file)
+2. Применение атак методом перебора
+3. Перехват трафика и атаки MiTM
+4. Поиск неправильной конфигурации (Redis, Сетевые шары, веб-порталы)
+
+   
 ## Веб
 Методология OWASP
 
