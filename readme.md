@@ -26,6 +26,7 @@ nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.
 
 ```
 nmap -Pn -vv -F -T4 --min-rate 50000 --min-hostgroup 100 -iL targets.txt
+nmap -Pn -n -sT -p 88,135,137,389,445,1433,3389 -sV -sC --open -iL list-of-machines.txt
 ```
 
 ## Веб
