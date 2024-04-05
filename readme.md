@@ -24,7 +24,7 @@ nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.
 
 ```
 
-##Конвертация pfx сертификатов
+## Конвертация pfx сертификата для web-сервера
 ```
 #!/usr/bin/env bash
 cert="$1"
