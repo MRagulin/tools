@@ -23,6 +23,21 @@ nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.
 =СЧЁТЕСЛИ($A$2:$A$100;A2)
 
 ```
+
+##Конвертация pfx сертификатов
+```
+#!/usr/bin/env bash
+cert="$1"
+#echo "cert: $cert"
+echo "Extract .crt and .key files from .pfx file"
+openssl pkcs12 -in $cert -nocerts -out $cert.key
+echo "Extract the certificate"
+openssl pkcs12 -in $cert -clcerts -nokeys -out $cert.crt
+echo "Decrypt the private key"
+openssl rsa -in $cert.key -out $cert.key
+chmod +r $cert*
+
+```
 ## nmap
 
 ```
