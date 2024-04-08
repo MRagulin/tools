@@ -512,7 +512,8 @@ docker images
 docker exec -it <container_id> netstat -tulpn
 docker logs <service_name>
 docker inspect <service_name>
-docker-compose ps --services
+docker-compose ps (--services)
+docker-compose logs (--tail 1000) <service_name>
 dockerd (error logs)
 ```
 ## Скрытие следов
