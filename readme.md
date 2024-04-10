@@ -233,7 +233,7 @@ WinPEAS
 
 Найти не экранированные сервисы (подробнее: https://juggernaut-sec.com/unquoted-service-paths/):
 
-Сбор сведений о RPC
+Сбор сведений о RPC (print system)
 ```
 rpcdump.py @10.10.10.175 | egrep 'MS-RPRN|MS-PAR'
 ```
