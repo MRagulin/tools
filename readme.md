@@ -302,6 +302,14 @@ Get-LastLoggedon -ComputerName <servername>
 Get-NetRDPSession -ComputerName <servername>
 ```
 
+**Сбор информации**
+```
+dig -t SRV _gc._tcp.domain.local
+dig -t SRV _ldap._tcp.domain.local
+dig -t SRV _kerberos._tcp.domain.local
+dig -t SRV _kpasswd._tcp.domain.local
+dig -t wpad.domain.local
+```
 **Поиск учетных записей в Linux для Windows**
 
 ```
