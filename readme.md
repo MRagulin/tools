@@ -155,7 +155,8 @@ Connection: close
 
 
 ***Закрепление***
-### systemd (создать файл в /lib/systemd/system/backdoor.service и Запустить его командами: sudo systemctl enable backdoor.service && sudo systemctl start backdoor.service)
+### Service 
+systemd (создать файл в /lib/systemd/system/backdoor.service и Запустить его командами: sudo systemctl enable backdoor.service && sudo systemctl start backdoor.service)
 
 ```
 [Unit]
