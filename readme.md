@@ -88,7 +88,7 @@ nmap -Pn -n -sT -p 88,135,137,389,445,1433,3389 -sV -sC --open -iL list-of-machi
 </script>\
 ```
 
-callback https://pipedream.com/
+callback https://requestbin.com
 
 ***Набор данных для фаззинга:***
 ```
