@@ -643,13 +643,17 @@ apt install docker.io -y
 
 ```
 docker ps
-docker images
+docker images (-q -a)
 docker exec -it <container_id> netstat -tulpn
 docker logs <service_name>
 docker inspect <service_name>
 docker-compose ps (--services)
 docker-compose logs (--tail 1000) <service_name>
 dockerd (error logs)
+docker system df
+docker volume ls
+docker rm -v $(docker ps --filter status=exited -q)
+docker image ls -q | xargs -I {} sudo docker image rm -f {}
 ```
 ## Скрытие следов
 
