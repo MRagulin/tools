@@ -1,4 +1,4 @@
-#DevSecOps 
+# DevSecOps 
 
 ### Типы сканирований:
 
