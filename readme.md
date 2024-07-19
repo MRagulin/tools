@@ -654,6 +654,7 @@ docker system df
 docker volume ls
 docker rm -v $(docker ps --filter status=exited -q)
 docker image ls -q | xargs -I {} sudo docker image rm -f {}
+docker inspect <imageid> | jq ".[0].State.Pid" | xargs lsns -p
 ```
 ## Скрытие следов
 
