@@ -56,10 +56,14 @@ nmap -Pn -n -sT -p 88,135,137,389,445,1433,3389 -sV -sC --open -iL list-of-machi
    ```
    findstr /s /p /i /n /m "password" *.xml *.ini *.txt *.config
    ```
-## Сокращение (alias) и kubectl
-
+## Сокращение (alias) 
+```
 doskey m=minikube $*
 doskey k=kubectl $*
+```
+
+## kubectl
+
 ```
 minikube ssh
 k get nodes
