@@ -71,3 +71,11 @@
     ansible.posix.authorized_key:
       user: "{{ USR }}"
       state: present
+       key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+
+  - name: Auth without password
+    lineinfile:
+      dest: "/etc/sudoers" # path: in version 2.3
+      state: "present"
+      line: "{{ USR }} ALL=(ALL) NOPASSWD: ALL"
+
