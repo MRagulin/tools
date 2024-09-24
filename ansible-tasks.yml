@@ -8,10 +8,11 @@
 		# [defaults]
 		# inventory = /etc/ansible/hosts
 		# host_key_checking = false
+		# private_key_file = /Users/ansible/.ssh/id_rsa
 
 	# в hosts что за хосты:
 		# [default]
-		# target0 ansible_host=192.168.65.139 ansible_ssh_user=dev ansible_ssh_private_key=/root/.ssh/id_rsa
+		# target0 ansible_host=192.168.65.139 ansible_ssh_user=dev ansible_ssh_private_key_file=/root/.ssh/id_rsa
 
 		# [targets_ubuntu] #groups
 		# target1 ansible_host=192.168.65.132 ansible_ssh_user=dev ansible_ssh_password=dev
