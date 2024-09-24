@@ -1,0 +1,73 @@
+# sudo apt install sshpass
+# sudo apt update && \
+# sudo apt install software-properties-common && \
+# sudo add-apt-repository --yes --update ppa:ansible/ansible && \\
+# sudo apt install ansible
+
+	# Включаем inventory в ansible.cfg
+		# [defaults]
+		# inventory = /etc/ansible/hosts
+		# host_key_checking = false
+
+	# в hosts что за хосты:
+		# [default]
+		# target0 ansible_host=192.168.65.139 ansible_ssh_user=dev ansible_ssh_private_key=/root/.ssh/id_rsa
+
+		# [targets_ubuntu] #groups
+		# target1 ansible_host=192.168.65.132 ansible_ssh_user=dev ansible_ssh_password=dev
+		
+		# [all_groups:children]
+		# default
+		# targets_ubuntu
+		
+		
+	# Проверяем хосты:
+		# ansible [all|targets_ubuntu|target1] -m ping 
+		
+	# Какие есть модули:
+		# ansible all -m setup
+	# Запуск модуля:
+		 # ansible targets_ubuntu -m shell|command -a "uptime"
+		 # ansible target1 -m file -a "path=/home/1.txt state=touch" -b (sudo)
+	
+	
+	# Запускаем playbook:
+		 # ansible-playbook -i hosts ping.yml -kK
+
+- name: Server config
+  hosts: all
+  become: yes
+
+  vars:
+    trace: TRACE_LOG
+    USR: mragulin
+  tasks:
+
+  - name: Task ping
+    ping:
+
+  - name: Update & Install htop
+    apt:
+      pkg:
+        - htop
+        - plocate
+        - tree
+      update_cache: true
+
+  - name: Default script
+    shell: id
+    register: ps
+
+  - name: Debug
+    debug:
+      msg: "{{ trace }} {{ ps.stdout_lines}}"
+
+  - name: Create User
+    user:
+       name: "{{ USR }}"
+       group: "root"
+
+  - name: Add private keys
+    ansible.posix.authorized_key:
+      user: "{{ USR }}"
+      state: present
