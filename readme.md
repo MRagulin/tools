@@ -1,5 +1,13 @@
 Скрипты автоматизации
 ====
+## Лучшие практики
+
+```
+https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/tree/main?tab=readme-ov-file
+https://github.com/ayoubfathi/leaky-paths/blob/992f8e38efc3edbd2b6d634600c59524b2605356/leaky-paths.txt#L296
+```
+
+
 ## SSH
 ### Проблема подключения putty к SSH через ключ (если это RSA)
 
