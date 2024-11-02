@@ -237,6 +237,12 @@ WMIC /Node:"host1","host2" /USER:"domain\user" /Namespace:\\root\SecurityCenter2
 wmic /Node:@C:\tmp\targets.txt /USER:"domain\user" /namespace:\\root\SecurityCenter2 path AntiVirusProduct get * /value
 ```
 
+Проверка сертификата
+
+```
+openssl s_client -showcerts -connect ast.example.com:443
+```
+
 ## Повышение привилегий
 
 **Linux** 
