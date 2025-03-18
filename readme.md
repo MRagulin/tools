@@ -34,6 +34,11 @@ du -sh /home
 =СЧЁТЕСЛИ($A$2:$A$100;A2)
 
 ```
+## генерация ключей для Nginx
+
+```
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/test.key -out /etc/ssl/certs/test.crt
+```
 
 ## Конвертация pfx сертификата для web-сервера
 ```
