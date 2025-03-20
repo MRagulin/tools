@@ -92,6 +92,7 @@ k delete pods nginx
 k describe pod nginx
 k create deployment  nginx-deployment --image=nginx
 
+k8s: /var!/run!/secrets!/kubernetes.io!/serviceaccount!/token
 ```
 
 ## Веб
