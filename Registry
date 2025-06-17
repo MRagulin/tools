@@ -1,0 +1,6 @@
+1. /v2/_catalog
+2. /v2/<obj>/tags/list/
+3. /v2/<obj>/manifest/<tag>
+4. /v2/<obj>/manifest/blobs/<sha256:hash>
+
+##https://docker-docs.uclv.cu/registry/spec/api/ 
