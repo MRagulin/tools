@@ -267,8 +267,8 @@ adduser user
 usermod -aG sudo user 
 mkdir /home/user/.ssh
 echo 'ssh-rsa AAAAB3N.....lbigkey root@myserver.local' >> /home/user/.ssh/authorized_keys
-chmod -R 600 /home/user/.ssh
 chown -R user:user /home/user/.ssh
+chmod -R 700 /home/user/.ssh
 echo 'user ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 echo 'Match User user' >> /etc/ssh/sshd_config
 echo '    PasswordAuthentication no' >> /etc/ssh/sshd_config
