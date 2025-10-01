@@ -266,7 +266,7 @@ openssl s_client -showcerts -connect ast.example.com:443
 adduser user
 usermod -aG sudo user 
 mkdir /home/user/.ssh
-echo 'ssh-rsa AAAAB3N.....lbigkey root@myserver.local' >> /home/user/.ssh/id_rsa.pub
+echo 'ssh-rsa AAAAB3N.....lbigkey root@myserver.local' >> /home/user/.ssh/authorized_keys
 chmod -R 600 /home/user/.ssh
 chown -R user:user /home/user/.ssh
 echo 'user ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
