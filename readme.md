@@ -84,14 +84,9 @@ doskey k=kubectl $*
 minikube ssh
 k get nodes
 k cluster-info
-k get pods
-k get pods --namespace=kube-system
-k get pods -o wide
-k get namespaces
-k get svc
-k get deployment
+k get all|pods|namespaces|svc|deployments|secrets|ingress --namespace=kube-system -o wide|json
 k run nginx --image=nginx:latest
-k delete pods nginx
+k delete pod nginx
 k describe pod nginx
 k create deployment  nginx-deployment --image=nginx
 
